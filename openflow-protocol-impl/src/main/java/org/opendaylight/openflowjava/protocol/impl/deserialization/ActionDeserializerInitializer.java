@@ -10,6 +10,7 @@ package org.opendaylight.openflowjava.protocol.impl.deserialization;
 
 import org.opendaylight.openflowjava.protocol.api.extensibility.DeserializerRegistry;
 import org.opendaylight.openflowjava.protocol.api.util.EncodeConstants;
+import org.opendaylight.openflowjava.protocol.impl.deserialization.action.H3CExperimenterActionDeserializer;
 import org.opendaylight.openflowjava.protocol.impl.deserialization.action.OF10EnqueueActionDeserializer;
 import org.opendaylight.openflowjava.protocol.impl.deserialization.action.OF10OutputActionDeserializer;
 import org.opendaylight.openflowjava.protocol.impl.deserialization.action.OF10SetDlDstActionDeserializer;
@@ -88,5 +89,7 @@ public final class ActionDeserializerInitializer {
         helper.registerDeserializer(25, new OF13SetFieldActionDeserializer());
         helper.registerDeserializer(26, new OF13PushPbbActionDeserializer());
         helper.registerDeserializer(27, new OF13PopPbbActionDeserializer());
+        //register H3C Experimenter action deserializer
+        helper.registerDeserializer(28, new H3CExperimenterActionDeserializer());
     }
 }

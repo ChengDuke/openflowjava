@@ -39,6 +39,15 @@
 
     grouping action-grouping {
         choice action-choice {
+        //experimenter
+        	case experimenter-case {
+        		container experimenter-action {
+        			leaf next-hop {
+        				type inet:ipv4-address;
+        			}
+        		}
+        	}
+		//OF1.0 structures
             case output-action-case {
                 container output-action {
                     leaf port {

@@ -9,6 +9,7 @@ package org.opendaylight.openflowjava.protocol.impl.serialization;
 
 import org.opendaylight.openflowjava.protocol.api.extensibility.SerializerRegistry;
 import org.opendaylight.openflowjava.protocol.api.util.EncodeConstants;
+import org.opendaylight.openflowjava.protocol.impl.serialization.action.H3CExperimenterActionSerializer;
 import org.opendaylight.openflowjava.protocol.impl.serialization.action.OF10EnqueueActionSerializer;
 import org.opendaylight.openflowjava.protocol.impl.serialization.action.OF10OutputActionSerializer;
 import org.opendaylight.openflowjava.protocol.impl.serialization.action.OF10SetDlDstActionSerializer;
@@ -43,6 +44,7 @@ import org.opendaylight.yang.gen.v1.urn.opendaylight.openflow.common.action.rev1
 import org.opendaylight.yang.gen.v1.urn.opendaylight.openflow.common.action.rev150203.action.grouping.action.choice.DecMplsTtlCase;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.openflow.common.action.rev150203.action.grouping.action.choice.DecNwTtlCase;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.openflow.common.action.rev150203.action.grouping.action.choice.EnqueueCase;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.openflow.common.action.rev150203.action.grouping.action.choice.ExperimenterCase;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.openflow.common.action.rev150203.action.grouping.action.choice.GroupCase;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.openflow.common.action.rev150203.action.grouping.action.choice.OutputActionCase;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.openflow.common.action.rev150203.action.grouping.action.choice.PopMplsCase;
@@ -97,7 +99,7 @@ public final class ActionsInitializer {
         helper.registerSerializer(SetTpSrcCase.class, new OF10SetTpSrcActionSerializer());
         helper.registerSerializer(SetTpDstCase.class, new OF10SetTpDstActionSerializer());
         helper.registerSerializer(EnqueueCase.class, new OF10EnqueueActionSerializer());
-        // register OF v1.0 action serializers
+        // register OF v1.3 action serializers
         helper = new ActionSerializerRegistryHelper(
                 EncodeConstants.OF13_VERSION_ID, serializerRegistry);
         helper.registerSerializer(OutputActionCase.class, new OF13OutputActionSerializer());
@@ -116,5 +118,7 @@ public final class ActionsInitializer {
         helper.registerSerializer(SetFieldCase.class, new OF13SetFieldActionSerializer());
         helper.registerSerializer(PushPbbCase.class, new OF13PushPbbActionSerializer());
         helper.registerSerializer(PopPbbCase.class, new OF13PopPbbActionSerializer());
+        //register H3C Experimenter serializer
+        helper.registerSerializer(ExperimenterCase.class, new H3CExperimenterActionSerializer());
     }
 }

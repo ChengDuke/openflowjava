@@ -68,6 +68,8 @@ public final class ActionConstants {
     public static final byte PUSH_PBB_CODE = 26;
     /** Openflow v1.3 OFPAT_POP_PBB code */
     public static final byte POP_PBB_CODE = 27;
+    /** H3C OFPAT_EXP code */
+    public static final byte EXP_NEXT_HOP_CODE = 28;
 
     /** Padding in OFPAT_OUTPUT (OF v1.3) */
     public static final byte OUTPUT_PADDING = 6;
